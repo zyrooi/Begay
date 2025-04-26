@@ -7,7 +7,18 @@ game.StarterGui:SetCore("SendNotification", {
     Callback = function()
     end
 })
+game.StarterGui:SetCore("SendNotification", {
+    Title = "By: Ziugpro",
+    Text = "Iu em:))",
+    Icon = "rbxthumb://type=Asset&id=94734384372752&w=420&h=420",
+    Duration = 60,
+    Button1 = "Cannel",
+    Callback = function()
+    end
+})
+
 repeat task.wait() until game:IsLoaded()
+
 getgenv().Image = "rbxthumb://type=Asset&id=94734384372752&w=420&h=420"
 getgenv().ToggleUI = "LeftControl"
 
@@ -22,7 +33,7 @@ task.spawn(function()
         OpenUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
         ImageButton.Parent = OpenUI
         ImageButton.BackgroundColor3 = Color3.fromRGB(105, 105, 105)
-        ImageB{utton.BackgroundTransparency = 0.8
+        ImageButton.BackgroundTransparency = 0.8
         ImageButton.Position = UDim2.new(0, 5, 0, 5)
         ImageButton.Size = UDim2.new(0, 58, 0, 58)
         ImageButton.Image = getgenv().Image
@@ -49,16 +60,14 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.LeftControl
 })
 
-local Tabs = 
-   Main = Window:AddTab({ Title = "Tab Script Farm", Icon = "" }),
-   Kaitun = Window:AddTab({ Title = "Tab Script Kaitun", Icon = "" }),
-   Chest = Window:AddTab({ Title = "Tab Script Chest", Icon = "" }),
-   Fruit  = Window:AddTab({ Title = "Tab Script Find Fruit", Icon = "" }),
-   Beli  = Window:AddTab({ Title = "Tab Script Farm Beli", Icon = "" }),
-    
+local Tabs = {
+    Main = Window:AddTab({ Title = "Tab Script Farm", Icon = "" }),
+    Chest = Window:AddTab({ Title = "Tab Script Chest", Icon = "" }),
+    Fruit = Window:AddTab({ Title = "Tab Script Fruit", Icon = "" }),
+    Kaitun = Window:AddTab({ Title = "Tab Script Kaitun", Icon = "" }),   
+    Beli = Window:AddTab({ Title = "Tab Script Beli", Icon = "" }),
+             
 }
-
-
 Tabs.Main:AddButton({
 	Title = "Maru Hub ( Fake )",
 	Description = "",
@@ -83,14 +92,6 @@ Tabs.Main:AddButton({
 	Description = "",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
-   end
-})
-
-
-Tabs.Kaitun:AddButton({
-	Title = "Quartz Kaitun Hub",
-	Description = "",
-	Callback = function()
    end
 })
 
@@ -433,16 +434,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Tienvn123tkvn/Test/ma
    end
 })
 
-
-Tabs.Main:AddButton({
-	Title = "Faifao Hub",
-	Description = "",
-	Callback = function()
-loadstring(game:HttpGet"https://raw.githubusercontent.com/PNguyen0199/Script/main/Fai-Fao.lua")()
-   end
-})
-
-
 Tabs.Beli:AddButton({
 	Title = "Beli",
 	Description = "",
@@ -513,6 +504,59 @@ Tabs.Kaitun:AddButton({
 	Title = "Hiru Hub",
 	Description = "",
 	Callback = function()
+_G.Quest = {
+    ['RGB Aura Haki'] = true,
+    ['Pull Lever'] = true,
+    ['Quest Dough Awaken'] = true
+}
+_G.Race = {
+    ['Select Race'] = {'Human','Fishman','Skypiea','Mink'},
+    ['Lock Race'] = true,
+    ['Evo Race V3'] = true
+}
+_G.Melee = {
+    ['Godhuman'] = true
+}
+_G.Sword = {
+    ['Saber'] = true,
+    ['Midnight Blade'] = true,
+    ['Shisui'] = true,
+    ['Saddi'] = true,
+    ['Wando'] = true,
+    ['Yama'] = true,
+    ['Koko'] = false,
+    ['Rengoku'] = true,
+    ['Canvander'] = true,
+    ['Buddy Sword'] = true,
+    ['Twin Hooks'] = true,
+    ['SpikeyTrident'] = true,
+    ['Hallow Scryte'] = true,
+    ['Dark Dagger'] = true,
+    ['Tushita'] = true,
+    ['True Triple Katana'] = true,
+    ['Cursed Dual Katana'] = true,
+    ['Shark Anchor'] = true
+}
+_G.Gun = {
+    ['Kabucha'] = true,
+    ['Acidum Rifle'] = true,
+    ['Soul Guitar'] = true,
+    ['Serpent Bow'] = true
+}
+_G.Fruit = {
+    ['Main Fruit'] = {'Kitsune-Kitsune','T-Rex-T-Rex','Mammoth-Mammoth'},
+    ['Select Fruit'] = {'Dark-Dark','Magma-Magma'}
+}
+_G.Mastery = {
+    ['Melee'] = true,
+    ['Sword'] = true,
+    ['Fruit'] = true
+}
+_G.Setting = {
+    ['FPS Booster'] = true,
+    ['Auto Close Ui'] = false
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NGUYENVUDUY1/Super/refs/heads/main/Kaitun.lua"))()
    end
 })
 
@@ -635,5 +679,4 @@ Tabs.Main:AddButton({
 loadstring(game:HttpGet('https://raw.githubusercontent.com/hajibeza/Module/main/Mobile_Script.lua'))();
    end
 })
-
 
