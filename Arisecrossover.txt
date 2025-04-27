@@ -9,10 +9,9 @@ game.StarterGui:SetCore("SendNotification", {
 })
 game.StarterGui:SetCore("SendNotification", {
     Title = "By: Ziugpro",
-    Text = "Iu em:))",
+    Text = "Làm người yêu mình đi:))",
     Icon = "rbxthumb://type=Asset&id=94734384372752&w=420&h=420",
-    Duration = 60,
-    Button1 = "Cannel",
+    Duration = 100,
     Callback = function()
     end
 })
@@ -51,8 +50,8 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 local Window = Fluent:CreateWindow({
-    Title = "Kimonvip By: Nguyễn Ly Dev: Ziugpro",
-    SubTitle = "Bản quyền thuộc về Ziugpro",
+    Title = "Yêu Em: Nguyễn Ly:)) Dev: Ziugpro",
+    SubTitle = "🤬🤬",
     TabWidth = 130,
     Size = UDim2.fromOffset(505, 355),
     Acrylic = true,
