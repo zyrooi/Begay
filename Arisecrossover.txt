@@ -4,6 +4,7 @@ game.StarterGui:SetCore("SendNotification", {
     Icon = "rbxthumb://type=Asset&id=94734384372752&w=420&h=420",
     Duration = 10,
     Button1 = "Cannel",
+    Button2 = "Ok",
     Callback = function()
     end
 })
@@ -11,7 +12,7 @@ game.StarterGui:SetCore("SendNotification", {
     Title = "By: Ziugpro",
     Text = "Làm người yêu mình đi:))",
     Icon = "rbxthumb://type=Asset&id=94734384372752&w=420&h=420",
-    Duration = 100,
+    Duration = 100000000,
     Callback = function()
     end
 })
