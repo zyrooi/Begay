@@ -40,6 +40,7 @@ local DarkraiX = loadstring(game:HttpGet("https://raw.githubusercontent.com/zyro
 
 local Library = DarkraiX:Window("Solitute Hub","","",Enum.KeyCode.LeftControl);
 Info = Library:Tab("☄️ Info ☄️")
+Setting = Library:Tab("☄️ Setting ☄️")
 Tab1 = Library:Tab("☄️ Gravity ☄️")
 Tab2 = Library:Tab("☄️ Level F ☄️")
 Tab3 = Library:Tab("☄️ Draco v3 ☄️")
@@ -56,6 +57,42 @@ Info:Seperator("Expired : Lifetime")
 Info:Seperator("Prite : 5 Usd - Prite : 80.000₫")
 Info:Seperator("Status Blacklist : None")
 Info:Seperator("Status Script : 🔃")
+
+Setting:Seperator("⚙️ Setting ⚙️")
+Setting:Toggle("Black Screengui", true, function(value)
+    if value then
+        local blackScreen = Instance.new("Frame")
+        blackScreen.Name = "BlackScreen"
+        blackScreen.Size = UDim2.new(1, 0, 1, 0)
+        blackScreen.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        blackScreen.Parent = game:GetService("CoreGui")
+    else
+        local blackScreen = game:GetService("CoreGui"):FindFirstChild("BlackScreen")
+        if blackScreen then
+            blackScreen:Destroy()
+        end
+    end
+end)
+Setting:Toggle("White Screengui", false, function(value)
+    if value then
+        local blackScreen = Instance.new("Frame")
+        blackScreen.Name = "BlackScreen"
+        blackScreen.Size = UDim2.new(1, 0, 1, 0)
+        blackScreen.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        blackScreen.Parent = game:GetService("CoreGui")
+    else
+        local blackScreen = game:GetService("CoreGui"):FindFirstChild("BlackScreen")
+        if blackScreen then
+            blackScreen:Destroy()
+        end
+    end
+end)
+Setting:Toggle("Bring Mob", true, function(value)
+end)
+Setting:Toggle("Bypass Tween", false, function(value)
+end)
+Setting:Toggle("Get Quest", true, function(value)
+end)
 
 Tab1:Seperator("☄️ Gravity  ☄️")
 Tab1:Toggle("Auto Gravity V2", false, function(value)
