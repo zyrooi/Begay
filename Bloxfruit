@@ -51,7 +51,7 @@ Shop = Library:Tab("☄️ Shop ☄️")
 Sea = Library:Tab("☄️ Sea Event ☄️")
 Item = Library:Tab("☄️ Item ☄️")
 Melee = Library:Tab("☄️ 7 Melee ☄️")
-Tele = Library:Tab("☄️ Teleport ☄️")
+Telepo = Library:Tab("☄️ Teleport ☄️")
 Im = Library:Tab("☄️ ________ ☄️")
 
 Info:Seperator("Version : Pro")
@@ -464,20 +464,19 @@ Item:Toggle("Auto TTK", false, function(value)
     end
 end)
 Item:Line()
-Tele:Seperator("📍 Teleport To World 📍")
-Tele:Button("Third Sea World",function()
+Telepo:Seperator("📍 Teleport To World 📍")
+Telepo:Button("Third Sea World",function()
 end)
-Tele:Button("New World",function()
-   
+Telepo:Button("New World",function() 
 end)
-Tele:Button("Old World",function()
+Telepo:Button("Old World",function()
 end)
 Tele:Seperator("📍 Tween Island 📍")
-Tele:Dropdown("Select Island", {""}, function(value)
+Telepo:Dropdown("Select Island", {""}, function(value)
 end)
-Tele:Toggle("Tween To Island", false, function(value)
+Telepo:Toggle("Tween To Island", false, function(value)
 end)
-Tele:Line()
+Telepo:Line()
 Melee:Seperator("👊🏻 7 Melee 👊🏻")
 Melee:Toggle("Auto Electric Claw", false, function(value)
     while value do task.wait(1) end
@@ -536,7 +535,7 @@ end)
 
 Shop:Button("Buy Sharkman Karate", function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate", true)
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate", true)
 end)
 
 Shop:Button("Buy Electric Claw", function()
@@ -580,16 +579,6 @@ Shop:Button("Auto Buy Ken Haki", function()
 end)
 Shop:Seperator("😀 Random Bone 😀")
 Shop:Toggle("Auto Random Bone", false, function(value)
-    while value do
-        task.wait()
-	local args = {
-	 [1] = "Bones",
-	 [2] = "Buy",
-	 [3] = 1,
-	 [4] = 1
-	}
-	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-    end
 end)
     
 Shop:Seperator("😀 Open Ui 😀")
