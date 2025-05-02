@@ -45,6 +45,7 @@ Tab1 = Library:Tab("☄️ Gravity ☄️")
 Tab2 = Library:Tab("☄️ Farm ☄️")
 Tab3 = Library:Tab("☄️ Draco v3 ☄️")
 Race = Library:Tab("☄️ Race v4 ☄️")
+Tele = Library:Tab("☄️ Teleport ☄️")
 Fruit = Library:Tab("☄️ Fruits ☄️")
 Raid = Library:Tab("☄️ Raid ☄️")
 Shop = Library:Tab("☄️ Shop ☄️")
@@ -600,6 +601,19 @@ end)
 Shop:Line()
 
 
-
+Tele:Seperator("📍 Teleport To World 📍")
+Tele:Button("Third Sea World",function()
+end)
+Tele:Button("New World",function()
+   
+end)
+Tele:Button("Old World",function()
+end)
+Tele:Seperator("📍 Tween Island 📍")
+Tele:Dropdown("Select Island", {""}, function(value)
+end)
+Tele:Toggle("Tween To Island", false, function(value)
+end)
+Tele:Line()
 
 
