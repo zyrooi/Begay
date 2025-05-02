@@ -35,7 +35,7 @@ task.spawn(function()
         ImageButton.Position = UDim2.new(0, 5, 0, 5)
         ImageButton.Size = UDim2.new(0, 58, 0, 58)
         ImageButton.Image = getgenv().Image
-        ImageButton.Draggable = false
+        ImageButton.Draggable = true
         ImageButton.Transparency = 1
         UICorner.CornerRadius = UDim.new(100)
         UICorner.Parent = ImageButton
@@ -49,13 +49,13 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 local Window = Fluent:CreateWindow({
-    Title = "Nguyễn Ly Script",
-    SubTitle = "Dev: Ziugpro",
+    Title = "Nguyễn Ly Script By: Ziugpro",
+    SubTitle = "",
     TabWidth = 130,
     Size = UDim2.fromOffset(505, 355),
     Acrylic = true,
     Theme = "Dark",
-    MinimizeKey = Enum.KeyCode.LeftControl
+    MinimizeKey = Enum.KeyCode.RightControl
 })
 
 local Tabs = {
@@ -111,8 +111,8 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/zyrooi/Premium/refs/h
 })
 
 Tabs.Main:AddButton({
-	Title = "Solitute Hub - Blox Fruit :)) Script của chồng sài thoải mái nha",
-	Description = "",
+	Title = "Solitute Hub - Blox Fruit",
+	Description = ":)) Script của chồng sài thoải mái nha",
 	Callback = function()
 repeat task.wait() until game:IsLoaded()
 getgenv().key = "njzhh2qib8qjpbszvo7wao346p496mitpcm"
