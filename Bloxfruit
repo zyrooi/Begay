@@ -464,7 +464,20 @@ Item:Toggle("Auto TTK", false, function(value)
     end
 end)
 Item:Line()
-
+Tele:Seperator("📍 Teleport To World 📍")
+Tele:Button("Third Sea World",function()
+end)
+Tele:Button("New World",function()
+   
+end)
+Tele:Button("Old World",function()
+end)
+Tele:Seperator("📍 Tween Island 📍")
+Tele:Dropdown("Select Island", {""}, function(value)
+end)
+Tele:Toggle("Tween To Island", false, function(value)
+end)
+Tele:Line()
 Melee:Seperator("👊🏻 7 Melee 👊🏻")
 Melee:Toggle("Auto Electric Claw", false, function(value)
     while value do task.wait(1) end
@@ -599,21 +612,5 @@ Shop:Button("Open Awakening", function()
     game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
 end)
 Shop:Line()
-
-
-Tele:Seperator("📍 Teleport To World 📍")
-Tele:Button("Third Sea World",function()
-end)
-Tele:Button("New World",function()
-   
-end)
-Tele:Button("Old World",function()
-end)
-Tele:Seperator("📍 Tween Island 📍")
-Tele:Dropdown("Select Island", {""}, function(value)
-end)
-Tele:Toggle("Tween To Island", false, function(value)
-end)
-Tele:Line()
 
 
