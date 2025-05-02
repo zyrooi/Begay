@@ -495,76 +495,58 @@ end)
 Melee:Line()
 
 Shop:Seperator("👊🏻 Melee 👊🏻")
-Shop:Toggle("Auto Buy Black Leg", false, function(value)
-    while value do
-        task.wait(1)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackleg")
-    end
+Shop:Button("Buy Black Leg", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackleg")
 end)
 
-Shop:Toggle("Auto Buy Electro", false, function(value)
-    while value do
-        task.wait(1)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
-    end
+Shop:Button("Buy Electro", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
 end)
 
-Shop:Toggle("Auto Buy Fishman Karate", false, function(value)
-    while value do
-        task.wait(1)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
-    end
+Shop:Button("Buy Fishman Karate", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
 end)
 
-Shop:Toggle("Auto Buy Dragon Claw", false, function(value)
-    while value do
-        task.wait(1)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "DragonClaw", "1")
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "DragonClaw", "2")
-    end
+Shop:Button("Buy Dragon Claw", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "DragonClaw", "1")
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "DragonClaw", "2")
 end)
 
-Shop:Toggle("Auto Buy Superhuman", false, function(value)
-    while value do
-        task.wait(1)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
-    end
+Shop:Button("Buy Superhuman", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
 end)
 
-Shop:Toggle("Auto Buy Death Step", false, function(value)
-    while value do
-        task.wait(1)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
-    end
+Shop:Button("Buy Death Step", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
 end)
 
-Shop:Toggle("Auto Buy Sharkman Karate", false, function(value)
-    while value do
-        task.wait(1)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate", true)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
-    end
+Shop:Button("Buy Sharkman Karate", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate", true)
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
 end)
 
-Shop:Toggle("Auto Buy Electric Claw", false, function(value)
-    while value do
-        task.wait(1)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
-    end
+Shop:Button("Buy Electric Claw", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
 end)
 
-Shop:Toggle("Auto Buy Dragon Talon", false, function(value)
-    while value do
-        task.wait(1)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
-    end
+Shop:Button("Buy Dragon Talon", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
 end)
 
-Shop:Toggle("Auto Buy Godhuman", false, function(value)
-    while value do
-        task.wait(1)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
-    end
+Shop:Button("Buy Godhuman", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+end)
+
+local Mastery = Tabs.Shop:AddSection("Misc Items")
+
+Shop:Button("Refund Stats", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "Refund", "1")
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "Refund", "2")
+end)
+Shop:Seperator("📜 Random Race 📜")
+Shop:Button("Reroll Race", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "Reroll", "1")
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "Reroll", "2")
 end)
 Shop:Seperator("👊🏻 Haki 👊🏻")
 Shop:Button("Auto Buy Geppo", function()
