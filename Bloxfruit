@@ -1,0 +1,411 @@
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Solitude Hub",
+    Text = "Success Loading",
+    Icon = "rbxthumb://type=Asset&id=103635972484891&w=420&h=420",
+    Duration = 5,
+    Callback = function()
+    end
+})
+repeat task.wait() until game:IsLoaded()
+
+getgenv().Image = "rbxthumb://type=Asset&id=103635972484891&w=420&h=420"
+getgenv().ToggleUI = "LeftControl"
+
+task.spawn(function()
+    if not getgenv().LoadedMobileUI then
+        getgenv().LoadedMobileUI = true
+        local OpenUI = Instance.new("ScreenGui")
+        local ImageButton = Instance.new("ImageButton")
+        local UICorner = Instance.new("UICorner")
+        OpenUI.Name = "OpenUI"
+        OpenUI.Parent = game:GetService("CoreGui")
+        OpenUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ImageButton.Parent = OpenUI
+        ImageButton.BackgroundColor3 = Color3.fromRGB(105, 105, 105)
+        ImageButton.BackgroundTransparency = 0.8
+        ImageButton.Position = UDim2.new(0, 5, 0, 5)
+        ImageButton.Size = UDim2.new(0, 58, 0, 58)
+        ImageButton.Image = getgenv().Image
+        ImageButton.Draggable = false
+        ImageButton.Transparency = 1
+        UICorner.CornerRadius = UDim.new(100)
+        UICorner.Parent = ImageButton
+        ImageButton.MouseButton1Click:Connect(function()
+            game:GetService("VirtualInputManager"):SendKeyEvent(true, getgenv().ToggleUI, false, game)
+        end)
+    end
+end)
+
+local DarkraiX = loadstring(game:HttpGet("https://raw.githubusercontent.com/zyrooi/Ui/refs/heads/main/Darkrai%20Ui%20(2).txt", true))()
+
+local Library = DarkraiX:Window("Solitute Hub","","",Enum.KeyCode.LeftControl);
+Info = Library:Tab("☄️ Info ☄️")
+Tab1 = Library:Tab("☄️ Gravity ☄️")
+Tab2 = Library:Tab("☄️ Level F ☄️")
+Tab3 = Library:Tab("☄️ Draco v3 ☄️")
+Race = Library:Tab("☄️ Race v4 ☄️")
+Fruit = Library:Tab("☄️ Fruits ☄️")
+Raid = Library:Tab("☄️ Raid Fr ☄️")
+Sea = Library:Tab("☄️ Sea Event ☄️")
+Item = Library:Tab("☄️ Item ☄️")
+Melee = Library:Tab("☄️ 7 Melee ☄️")
+Im = Library:Tab("☄️ ________ ☄️")
+
+Info:Seperator("Version : Pro")
+Info:Seperator("Expired : Lifetime")
+Info:Seperator("Prite : 5 Usd - Prite : 80.000₫")
+Info:Seperator("Status Blacklist : None")
+Info:Seperator("Status Script : 🔃")
+
+Tab1:Seperator("☄️ Gravity  ☄️")
+Tab1:Toggle("Auto Gravity V2", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Tab1:Toggle("Auto Farm Mastery", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Tab1:Seperator("📦 Skill 📦")
+
+Tab1:Toggle("Skill Z", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Tab1:Toggle("Skill X", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Tab1:Toggle("Skill F", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Tab1:Toggle("Skill V", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Tab1:Toggle("Skill C", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Tab1:Line()
+Tab2:Seperator("📜 Level 📜")
+
+Tab2:Toggle("Auto Level", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Tab2:Seperator("💀 Boss 💀")
+Tab2:Dropdown("Select Boss", {""}, function(value)
+end)
+
+Tab2:Toggle("Auto Boss", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Tab3:Seperator("🐉 Draco v1 🐉")
+
+
+Tab3:Toggle("Auto Draco v1", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Tab3:Seperator("🐉 Draco v2 🐉")
+
+
+Tab3:Toggle("Auto Draco v2", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Tab3:Seperator("🐉 Draco v3 🐉")
+
+
+Tab3:Toggle("Auto Draco v3", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Tab3:Line()
+
+
+Race:Seperator("📦 Race v4 📦")
+
+
+Race:Toggle("Auto Race v4", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+
+Race:Toggle("Tween Door For Race", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+
+Race:Toggle("Auto Kill Player", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Race:Seperator("👶🏻 Select Player 👶🏻")
+
+Race:Dropdown("Select Player 1", {""}, function(value)
+end)
+Race:Dropdown("Select Player 2", {""}, function(value)
+end)
+Race:Seperator("📦 Race 📦")
+
+
+Race:Toggle("Auto Race v2", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Race:Toggle("Auto Race v3", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Race:Toggle("Auto Get Cyborg", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+
+Race:Toggle("Auto Get Ghool", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Race:Line()
+
+
+Fruit:Seperator("📦 Buy Fruit 📦")
+
+Fruit:Dropdown("Select Fruit", {""}, function(value)
+end)
+Fruit:Toggle("Auto Buy Fruit", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Fruit:Seperator("📦 Random & Fruit 📦")
+
+
+Fruit:Toggle("Auto Store Fruit", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Fruit:Toggle("Auto Find Fruit", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Fruit:Toggle("Auto Find Fruit ( Hop )", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Fruit:Toggle("Auto Random Fruit", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Fruit:Line()
+Raid:Seperator("📦 Raid Fruit 📦")
+Raid:Dropdown("Select Fruit", {""}, function(value)
+end)
+
+Raid:Toggle("Auto Get Fruit 1m", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+
+Raid:Toggle("Auto Buys Chip ( Trade )", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end) 
+
+Raid:Toggle("Auto Buys Chip ( 100.000 Beli )", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+
+Raid:Toggle("Auto Next Island", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Raid:Toggle("Auto Bring Mob", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Raid:Toggle("Auto Farm Raid", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Raid:Toggle("Auto Update Fruit", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Raid:Line()
+
+Sea:Seperator("🌊 Sea Event 🌊")
+
+Sea:Toggle("Auto Farm Sea", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end) 
+
+Sea:Toggle("Auto Buy Boat", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Sea:Seperator("⚙️ Setting ⚙️")
+
+
+
+Sea:Toggle("Levithan", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Sea:Toggle("SeaBeast", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Sea:Toggle("Piranha", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Sea:Toggle("Boat Ghost", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Sea:Toggle("Boat", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Sea:Line()
+
+Item:Seperator("⚔️ CDK ⚔️")
+
+Item:Toggle("Auto Yama ", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+
+Item:Toggle("Auto Tushita", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Item:Toggle("Auto CDK", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Item:Seperator("⚔️ TTK ⚔️")
+
+
+Item:Toggle("Auto Saddi", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Item:Toggle("Auto Wando", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Item:Toggle("Auto Shishui", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+
+Item:Toggle("Auto TTK", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
+Item:Line()
+
+Melee:Seperator("👊🏻 7 Melee 👊🏻")
+Melee:Toggle("Auto Electric Claw", false, function(value)
+    while value do task.wait(1) end
+end)
+
+Melee:Toggle("Auto Death Step", false, function(value)
+    while value do task.wait(1) end
+end)
+
+Melee:Toggle("Auto Sharkman Karate", false, function(value)
+    while value do task.wait(1) end
+end)
+
+Melee:Toggle("Auto Dragon Talon", false, function(value)
+    while value do task.wait(1) end
+end)
+
+Melee:Toggle("Auto Superhuman", false, function(value)
+    while value do task.wait(1) end
+end)
+
+Melee:Toggle("Auto Godhuman", false, function(value)
+    while value do task.wait(1) end
+end)
+
+Melee:Toggle("Auto Sanguine Art", false, function(value)
+    while value do task.wait(1) end
+end)
+Melee:Line()
+
+
