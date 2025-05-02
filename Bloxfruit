@@ -42,11 +42,12 @@ local Library = DarkraiX:Window("Solitute Hub","","",Enum.KeyCode.LeftControl);
 Info = Library:Tab("☄️ Info ☄️")
 Setting = Library:Tab("☄️ Setting ☄️")
 Tab1 = Library:Tab("☄️ Gravity ☄️")
-Tab2 = Library:Tab("☄️ Level F ☄️")
+Tab2 = Library:Tab("☄️ Farm ☄️")
 Tab3 = Library:Tab("☄️ Draco v3 ☄️")
 Race = Library:Tab("☄️ Race v4 ☄️")
 Fruit = Library:Tab("☄️ Fruits ☄️")
-Raid = Library:Tab("☄️ Raid Fr ☄️")
+Raid = Library:Tab("☄️ Raid ☄️")
+Shop = Library:Tab("☄️ Shop ☄️")
 Sea = Library:Tab("☄️ Sea Event ☄️")
 Item = Library:Tab("☄️ Item ☄️")
 Melee = Library:Tab("☄️ 7 Melee ☄️")
@@ -134,21 +135,69 @@ Tab1:Toggle("Skill C", false, function(value)
 end)
 Tab1:Line()
 Tab2:Seperator("📜 Level 📜")
+Tab1:Toggle("Auto Level", false, function(value)
+    _G.AutoFarm = value
+    spawn(function()
+        while _G.AutoFarm do
+            wait(0.1)
+            local closestEnemy, shortestDistance = nil, math.huge
+            for _, enemy in pairs(game.Workspace.Enemies:GetChildren()) do
+                if enemy:FindFirstChild("Humanoid") and enemy:FindFirstChild("HumanoidRootPart") and enemy.Humanoid.Health > 0 then
+                    local distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - enemy.HumanoidRootPart.Position).Magnitude
+                    if distance < shortestDistance then
+                        closestEnemy = enemy
+                        shortestDistance = distance
+                    end
+                end
+            end
 
-Tab2:Toggle("Auto Level", false, function(value)
+            if closestEnemy then
+                repeat
+                    wait(0.1)
+                    local hrp = game.Players.LocalPlayer.Character.HumanoidRootPart
+                    hrp.CFrame = closestEnemy.HumanoidRootPart.CFrame * CFrame.new(0, 0, 2)
+
+                    local tool = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool")
+                    if tool then
+                        tool:Activate()
+                    end
+
+                    pcall(function()
+                        closestEnemy.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                        closestEnemy.HumanoidRootPart.Transparency = 1
+                        closestEnemy.Humanoid.JumpPower = 0
+                        closestEnemy.Humanoid.WalkSpeed = 0
+                        closestEnemy.HumanoidRootPart.CanCollide = false
+                    end)
+                until not _G.AutoFarm or not closestEnemy or not closestEnemy.Parent or closestEnemy.Humanoid.Health <= 0
+            end
+        end
+    end)
+end)
+Tab2:Seperator("📦 Boss Sea 1 📦")
+Tab2:Toggle("Auto Farm All Boss", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end) 
+
+Tab2:Seperator("📦 Boss Sea 2 📦")
+Tab2:Toggle("Auto Farm All Boss", false, function(value)
     while value do
         task.wait(1)
     end
 end)
-Tab2:Seperator("💀 Boss 💀")
-Tab2:Dropdown("Select Boss", {""}, function(value)
-end)
 
-Tab2:Toggle("Auto Boss", false, function(value)
+Tab2:Seperator("📦 Boss Sea 3 📦")
+Tab2:Toggle("Auto Farm All Boss", false, function(value)
     while value do
         task.wait(1)
     end
 end)
+
+
+Tab2:Line()
+
 Tab3:Seperator("🐉 Draco v1 🐉")
 
 
@@ -444,5 +493,131 @@ Melee:Toggle("Auto Sanguine Art", false, function(value)
     while value do task.wait(1) end
 end)
 Melee:Line()
+
+Shop:Seperator("👊🏻 Melee 👊🏻")
+Shop:Toggle("Auto Buy Black Leg", false, function(value)
+    while value do
+        task.wait(1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackleg")
+    end
+end)
+
+Shop:Toggle("Auto Buy Electro", false, function(value)
+    while value do
+        task.wait(1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
+    end
+end)
+
+Shop:Toggle("Auto Buy Fishman Karate", false, function(value)
+    while value do
+        task.wait(1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
+    end
+end)
+
+Shop:Toggle("Auto Buy Dragon Claw", false, function(value)
+    while value do
+        task.wait(1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "DragonClaw", "1")
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "DragonClaw", "2")
+    end
+end)
+
+Shop:Toggle("Auto Buy Superhuman", false, function(value)
+    while value do
+        task.wait(1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
+    end
+end)
+
+Shop:Toggle("Auto Buy Death Step", false, function(value)
+    while value do
+        task.wait(1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
+    end
+end)
+
+Shop:Toggle("Auto Buy Sharkman Karate", false, function(value)
+    while value do
+        task.wait(1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate", true)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
+    end
+end)
+
+Shop:Toggle("Auto Buy Electric Claw", false, function(value)
+    while value do
+        task.wait(1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
+    end
+end)
+
+Shop:Toggle("Auto Buy Dragon Talon", false, function(value)
+    while value do
+        task.wait(1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+    end
+end)
+
+Shop:Toggle("Auto Buy Godhuman", false, function(value)
+    while value do
+        task.wait(1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+    end
+end)
+Shop:Seperator("👊🏻 Haki 👊🏻")
+Shop:Button("Auto Buy Geppo", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki", "Geppo")
+end)
+
+Shop:Button("Auto Buy Buso Haki", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki", "Buso")
+end)
+
+Shop:Button("Auto Buy Soru", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki", "Soru")
+end)
+
+Shop:Button("Auto Buy Ken Haki", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk", "Buy")
+end)
+Shop:Seperator("😀 Random Bone 😀")
+Shop:Toggle("Auto Random Bone", false, function(value)
+    while value do
+        task.wait()
+	local args = {
+	 [1] = "Bones",
+	 [2] = "Buy",
+	 [3] = 1,
+	 [4] = 1
+	}
+	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    end
+end)
+    
+Shop:Seperator("😀 Open Ui 😀")
+Shop:Button("Devil Shop", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
+    game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true
+end)
+
+Shop:Button("Color Haki", function()
+    game.Players.LocalPlayer.PlayerGui.Main.Colors.Visible = true
+end)
+
+Shop:Button("Title Name", function()
+    local args = { [1] = "getTitles" }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    game.Players.LocalPlayer.PlayerGui.Main.Titles.Visible = true
+end)
+
+Shop:Button("Open Awakening", function()
+    game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
+end)
+Shop:Line()
+
+
+
 
 
