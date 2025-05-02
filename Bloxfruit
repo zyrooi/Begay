@@ -135,7 +135,7 @@ Tab1:Toggle("Skill C", false, function(value)
 end)
 Tab1:Line()
 Tab2:Seperator("📜 Level 📜")
-Tab1:Toggle("Auto Level", false, function(value)
+Tab2:Toggle("Auto Level", false, function(value)
     _G.AutoFarm = value
     spawn(function()
         while _G.AutoFarm do
