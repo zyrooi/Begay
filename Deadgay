@@ -1,0 +1,267 @@
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Solitude Hub",
+    Text = "Success Loading",
+    Icon = "rbxthumb://type=Asset&id=91241799178994&w=420&h=420",
+    Duration = 5,
+    Callback = function()
+    end
+})
+repeat task.wait() until game:IsLoaded()
+
+getgenv().Image = "rbxthumb://type=Asset&id=91241799178994&w=420&h=420"
+getgenv().ToggleUI = "LeftControl"
+
+task.spawn(function()
+    if not getgenv().LoadedMobileUI then
+        getgenv().LoadedMobileUI = true
+        local OpenUI = Instance.new("ScreenGui")
+        local ImageButton = Instance.new("ImageButton")
+        local UICorner = Instance.new("UICorner")
+        OpenUI.Name = "OpenUI"
+        OpenUI.Parent = game:GetService("CoreGui")
+        OpenUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ImageButton.Parent = OpenUI
+        ImageButton.BackgroundColor3 = Color3.fromRGB(105, 105, 105)
+        ImageButton.BackgroundTransparency = 0.8
+        ImageButton.Position = UDim2.new(0, 5, 0, 5)
+        ImageButton.Size = UDim2.new(0, 55, 0, 55)
+        ImageButton.Image = getgenv().Image
+        ImageButton.Draggable = true
+        ImageButton.Transparency = 1
+        UICorner.CornerRadius = UDim.new(100)
+        UICorner.Parent = ImageButton
+        ImageButton.MouseButton1Click:Connect(function()
+            game:GetService("VirtualInputManager"):SendKeyEvent(true, getgenv().ToggleUI, false, game)
+        end)
+    end
+end)
+local DarkraiX = loadstring(game:HttpGet("https://raw.githubusercontent.com/zyrooi/Ui/refs/heads/main/Darkrai%20Ui%20(2).txt", true))()
+
+local Library = DarkraiX:Window("Solitute Hub","","",Enum.KeyCode.LeftControl);
+Tab1 = Library:Tab("📜 General 📜")
+
+
+Tab1:Seperator("🔫 Aimbot 🔫")
+Tab1:Toggle("Aimbot Mob", false, function(value)
+    local circle = Drawing.new("Circle")
+    circle.Color = Color3.new(1, 0, 0)
+    circle.Thickness = 2
+    circle.NumSides = 100
+    circle.Radius = 150
+    circle.Filled = false
+    circle.Position = Vector2.new(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2)
+    circle.Visible = false
+
+    if value then
+        circle.Visible = true
+    end
+
+    while value do
+        task.wait(0.1)
+        local camera = workspace.CurrentCamera
+        local closest = nil
+        local shortestDistance = 150
+
+        for _, mob in pairs(workspace:GetDescendants()) do
+            if mob:IsA("Model") and mob:FindFirstChild("Humanoid") and mob:FindFirstChild("Head") then
+                if mob.Humanoid.Health > 0 and not game.Players:GetPlayerFromCharacter(mob) then
+                    local headPos, onScreen = camera:WorldToViewportPoint(mob.Head.Position)
+                    local dist = (Vector2.new(headPos.X, headPos.Y) - Vector2.new(camera.ViewportSize.X/2, camera.ViewportSize.Y/2)).Magnitude
+                    if onScreen and dist < shortestDistance then
+                        shortestDistance = dist
+                        closest = mob.Head
+                    end
+                end
+            end
+        end
+
+        if closest then
+            camera.CFrame = CFrame.new(camera.CFrame.Position, closest.Position)
+        end
+        task.wait(0.1)
+    end
+
+    circle.Visible = false
+end)
+Tab1:Seperator("🔫 Esp 🔫")
+
+Tab1:Toggle("Esp Mob", false, function(value)
+    local function createNPC_ESP(npc)
+        if npc:FindFirstChild("Head") and npc:FindFirstChild("Humanoid") then
+            local head = npc.Head
+            local humanoid = npc.Humanoid
+
+            if humanoid.Health > 0 then
+                local billboardGui = Instance.new("BillboardGui")
+                billboardGui.Adornee = head
+                billboardGui.Parent = head
+                billboardGui.Size = UDim2.new(0, 200, 0, 50)
+                billboardGui.StudsOffset = Vector3.new(0, 3, 0)
+                billboardGui.AlwaysOnTop = true
+
+                local nameTag = Instance.new("TextLabel")
+                nameTag.Parent = billboardGui
+                nameTag.Text = npc.Name
+                nameTag.TextColor3 = Color3.fromRGB(255, 255, 255)
+                nameTag.TextStrokeTransparency = 0.5
+                nameTag.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+                nameTag.BackgroundTransparency = 1
+                nameTag.Size = UDim2.new(1, 0, 1, 0)
+                nameTag.Position = UDim2.new(0, 0, 0, 0)
+                nameTag.TextScaled = true
+                nameTag.Font = Enum.Font.SourceSansBold
+
+                humanoid.Died:Connect(function()
+                    billboardGui:Destroy()
+                end)
+            end
+        end
+    end
+
+    local function removeESP()
+        for _, npc in pairs(workspace:GetDescendants()) do
+            if npc:IsA("Model") and not game.Players:FindFirstChild(npc.Name) then
+                local humanoid = npc:FindFirstChild("Humanoid")
+                if humanoid and humanoid.Health > 0 then
+                    local billboardGui = npc:FindFirstChildOfClass("BillboardGui")
+                    if billboardGui then
+                        billboardGui:Destroy()
+                    end
+                end
+            end
+        end
+    end
+
+    if value then
+        for _, npc in pairs(workspace:GetDescendants()) do
+            if npc:IsA("Model") and not game.Players:FindFirstChild(npc.Name) then
+                createNPC_ESP(npc)
+            end
+        end
+
+        workspace.ChildAdded:Connect(function(child)
+            if child:IsA("Model") and child:FindFirstChild("Humanoid") and not game.Players:FindFirstChild(child.Name) then
+                createNPC_ESP(child)
+            end
+        end)
+    else
+        removeESP()
+    end
+end)
+Tab1:Toggle("Eps Player", false, function(value)
+    local function createESP(player)
+        if player.Character and player.Character:FindFirstChild("Head") then
+            local head = player.Character.Head
+            local billboardGui = Instance.new("BillboardGui")
+            billboardGui.Adornee = head
+            billboardGui.Parent = player.Character
+            billboardGui.Size = UDim2.new(0, 200, 0, 50)
+            billboardGui.StudsOffset = Vector3.new(0, 3, 0)
+            billboardGui.AlwaysOnTop = true
+
+            local distance = (player.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude
+            local distanceTag = Instance.new("TextLabel")
+            distanceTag.Parent = billboardGui
+            distanceTag.Text = string.format("%.2f studs", distance)
+            distanceTag.TextColor3 = Color3.fromRGB(255, 255, 255)
+            distanceTag.TextStrokeTransparency = 0.5
+            distanceTag.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+            distanceTag.BackgroundTransparency = 1
+            distanceTag.Size = UDim2.new(1, 0, 0.3, 0)
+            distanceTag.Position = UDim2.new(0, 0, 0, 0)
+            distanceTag.TextScaled = false
+            distanceTag.Font = Enum.Font.SourceSansBold
+            distanceTag.TextSize = 22
+
+            local nameTag = Instance.new("TextLabel")
+            nameTag.Parent = billboardGui
+            nameTag.Text = player.Name
+            nameTag.TextColor3 = Color3.fromRGB(255, 255, 255)
+            nameTag.TextStrokeTransparency = 0.5
+            nameTag.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+            nameTag.BackgroundTransparency = 1
+            nameTag.Size = UDim2.new(1, 0, 0.7, 0)
+            nameTag.Position = UDim2.new(0, 0, 0.3, 0)
+            nameTag.TextScaled = false
+            nameTag.Font = Enum.Font.SourceSansBold
+            nameTag.TextSize = 22
+
+            game:GetService("RunService").Heartbeat:Connect(function()
+                if player.Character and player.Character:FindFirstChild("Head") then
+                    local distance = (player.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude
+                    distanceTag.Text = string.format("%.2f studs", distance)
+                    billboardGui.StudsOffset = Vector3.new(0, 3, 0)
+                end
+            end)
+        end
+    end
+
+    local function removeESP()
+        for _, player in pairs(game.Players:GetPlayers()) do
+            if player.Character and player.Character:FindFirstChild("Head") then
+                local billboardGui = player.Character:FindFirstChildOfClass("BillboardGui")
+                if billboardGui then
+                    billboardGui:Destroy()
+                end
+            end
+        end
+    end
+
+    if value then
+        for _, player in ipairs(game.Players:GetPlayers()) do
+            if player.Character then
+                createESP(player)
+            end
+        end
+
+        game.Players.PlayerAdded:Connect(function(player)
+            player.CharacterAdded:Connect(function()
+                createESP(player)
+            end)
+        end)
+    else
+        removeESP()
+    end
+end)
+Tab1:Seperator("🔫 Train 🔫")
+Tab1:Toggle("Auto Driver Train", false, function(value)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+
+    local humanoid = character:WaitForChild("Humanoid")
+    
+    local function moveForward()
+        while value do
+            local direction = character.PrimaryPart.CFrame.LookVector
+            humanoid:Move(direction)
+            wait(0.1)
+        end
+    end
+
+    if value then
+        moveForward()
+    end
+end)
+Tab1:Seperator("🖕🏻 Farming 🖕🏻")
+Tab1:Toggle("Auto Farm Mob", false, function(value)
+end)
+Tab1:Toggle("Bring Mob", true, function(value)
+end)
+
+Tab1:Seperator("🖕🏻 Teleport 🖕🏻")
+Tab1:Toggle("Auto Teleport To End", false, function(value)
+end)
+Tab1:Toggle("Auto Teleport To TeslaTab", false, function(value)
+end)
+
+Tab1:Toggle("Auto Teleport To Castle", false, function(value)
+end)
+
+Tab1:Toggle("Auto Teleport To Train", false, function(value)
+end)
+
+
+Tab1:Line()
+
+
+
