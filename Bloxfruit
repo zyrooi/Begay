@@ -109,27 +109,27 @@ Tab1:Toggle("Auto Farm Mastery", false, function(value)
 end)
 Tab1:Seperator("📦 Skill 📦")
 
-Tab1:Toggle("Skill Z", false, function(value)
+Tab1:Toggle("Skill Z", true, function(value)
     while value do
         task.wait(1)
     end
 end)
-Tab1:Toggle("Skill X", false, function(value)
+Tab1:Toggle("Skill X", true, function(value)
     while value do
         task.wait(1)
     end
 end)
-Tab1:Toggle("Skill F", false, function(value)
+Tab1:Toggle("Skill F", true, function(value)
     while value do
         task.wait(1)
     end
 end)
-Tab1:Toggle("Skill V", false, function(value)
+Tab1:Toggle("Skill V", true, function(value)
     while value do
         task.wait(1)
     end
 end)
-Tab1:Toggle("Skill C", false, function(value)
+Tab1:Toggle("Skill C", true, function(value)
     while value do
         task.wait(1)
     end
@@ -386,31 +386,31 @@ Sea:Seperator("⚙️ Setting ⚙️")
 
 
 
-Sea:Toggle("Levithan", false, function(value)
+Sea:Toggle("Levithan", true, function(value)
     while value do
         task.wait(1)
     end
 end)
 
-Sea:Toggle("SeaBeast", false, function(value)
+Sea:Toggle("SeaBeast", true, function(value)
     while value do
         task.wait(1)
     end
 end)
 
-Sea:Toggle("Piranha", false, function(value)
+Sea:Toggle("Piranha", true, function(value)
     while value do
         task.wait(1)
     end
 end)
 
-Sea:Toggle("Boat Ghost", false, function(value)
+Sea:Toggle("Boat Ghost", true, function(value)
     while value do
         task.wait(1)
     end
 end)
 
-Sea:Toggle("Boat", false, function(value)
+Sea:Toggle("Boat", true, function(value)
     while value do
         task.wait(1)
     end
