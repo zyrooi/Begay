@@ -1,0 +1,74 @@
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Solitude Hub",
+    Text = "Success Loading",
+    Icon = "rbxthumb://type=Asset&id=91241799178994&w=420&h=420",
+    Duration = 5,
+    Callback = function()
+    end
+})
+repeat task.wait() until game:IsLoaded()
+
+getgenv().Image = "rbxthumb://type=Asset&id=91241799178994&w=420&h=420"
+getgenv().ToggleUI = "LeftControl"
+
+task.spawn(function()
+    if not getgenv().LoadedMobileUI then
+        getgenv().LoadedMobileUI = true
+        local OpenUI = Instance.new("ScreenGui")
+        local ImageButton = Instance.new("ImageButton")
+        local UICorner = Instance.new("UICorner")
+        OpenUI.Name = "OpenUI"
+        OpenUI.Parent = game:GetService("CoreGui")
+        OpenUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ImageButton.Parent = OpenUI
+        ImageButton.BackgroundColor3 = Color3.fromRGB(105, 105, 105)
+        ImageButton.BackgroundTransparency = 0.8
+        ImageButton.Position = UDim2.new(0, 5, 0, 5)
+        ImageButton.Size = UDim2.new(0, 55, 0, 55)
+        ImageButton.Image = getgenv().Image
+        ImageButton.Draggable = true
+        ImageButton.Transparency = 1
+        UICorner.CornerRadius = UDim.new(100)
+        UICorner.Parent = ImageButton
+        ImageButton.MouseButton1Click:Connect(function()
+            game:GetService("VirtualInputManager"):SendKeyEvent(true, getgenv().ToggleUI, false, game)
+        end)
+    end
+end)
+local DarkraiX = loadstring(game:HttpGet("https://raw.githubusercontent.com/zyrooi/Ui/refs/heads/main/Darkrai%20Ui%20(2).txt", true))()
+
+local Library = DarkraiX:Window("Solitute Hub","","",Enum.KeyCode.LeftControl);
+Tab1 = Library:Tab("📜 General 📜")
+Dung = Library:Tab("📜 Dungeon 📜")
+
+
+Tab1:Seperator("📜 Main 📜")
+Tab1:Toggle("Auto Reawaken", false, function(value)
+end)
+Tab1:Toggle("Auto Claim Daily Reward", false, function(value)
+end)
+Tab1:Seperator("📜 Stats 📜")
+Tab1:Dropdown("Select Stats", {""}, function(value)
+end)
+Tab1:Toggle("Auto Up Stats", false, function(value)
+end)
+Tab1:Seperator("📜 Code 📜")
+Tab1:Button("Redeem All Code",function()
+end)
+Tab1:Line()
+
+Dung:Seperator("📜 Dungeon 📜")
+Dung:Dropdown("Select Dungeon", {""}, function(value)
+end)
+Dung:Dropdown("Select Difficulty", {""}, function(value)
+end)
+Dung:Toggle("Auto Join Dungeon", false, function(value)
+end)
+Dung:Toggle("Auto Leave Dungeon", false, function(value)
+end)
+
+Dung:Toggle("Auto Farm Dungeon", false, function(value)
+end)
+Dung:Line()
+
+
