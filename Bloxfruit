@@ -51,6 +51,7 @@ local DarkraiX = loadstring(game:HttpGet("https://raw.githubusercontent.com/zyro
 local Library = DarkraiX:Window("Solitute Hub","","",Enum.KeyCode.LeftControl);
 Info = Library:Tab("📜 Info 📜")
 Setting = Library:Tab("📜 Setting 📜")
+Esp = Library:Tab("📜 Esp 📜")
 Tab1 = Library:Tab("📜 Gravity 📜")
 Tab2 = Library:Tab("📜 Farm 📜")
 Tab3 = Library:Tab("📜 Draco v3 📜")
@@ -600,6 +601,145 @@ Shop:Button("Open Awakening", function()
     game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
 end)
 Shop:Line()
+Esp:Seperator("📜 Esp 📜")
+
+Esp:Toggle("Esp Mob", false, function(value)
+end)
+Esp:Toggle("Esp Player", false, function(value)
+local function createESP(player)
+    if player.Character and player.Character:FindFirstChild("Head") then
+        local head = player.Character.Head
+        local billboardGui = Instance.new("BillboardGui")
+        billboardGui.Adornee = head
+        billboardGui.Parent = player.Character
+        billboardGui.Size = UDim2.new(0, 200, 0, 50)  -- Cố định kích thước BillboardGui
+        billboardGui.StudsOffset = Vector3.new(0, 3, 0)  -- Điều chỉnh vị trí đúng
+        billboardGui.AlwaysOnTop = true
+
+        -- Khoảng cách giữa người chơi và người chạy script
+        local distance = (player.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude
+        local distanceTag = Instance.new("TextLabel")
+        distanceTag.Parent = billboardGui
+        distanceTag.Text = string.format("%.2f studs", distance)
+        distanceTag.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Màu chữ trắng
+        distanceTag.TextStrokeTransparency = 0.5  -- Giảm giá trị để viền chữ dày hơn
+        distanceTag.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)  -- Viền đen
+        distanceTag.BackgroundTransparency = 1
+        distanceTag.Size = UDim2.new(1, 0, 0.3, 0)  -- Khoảng cách chiếm 30% chiều cao
+        distanceTag.Position = UDim2.new(0, 0, 0, 0)  -- Đặt ở trên cùng
+        distanceTag.TextScaled = false  -- Không tự động thay đổi kích thước chữ
+        distanceTag.Font = Enum.Font.SourceSansBold
+        distanceTag.TextSize = 22
+
+        -- Tạo TextLabel cho tên người chơi
+        local nameTag = Instance.new("TextLabel")
+        nameTag.Parent = billboardGui
+        nameTag.Text = player.Name
+        nameTag.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Màu chữ trắng
+        nameTag.TextStrokeTransparency = 0.5  -- Giảm giá trị để viền chữ dày hơn
+        nameTag.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)  -- Viền đen
+        nameTag.BackgroundTransparency = 1
+        nameTag.Size = UDim2.new(1, 0, 0.7, 0)  -- Chiếm 70% chiều cao
+        nameTag.Position = UDim2.new(0, 0, 0.3, 0)  -- Đặt dưới khoảng cách
+        nameTag.TextScaled = false  -- Không tự động thay đổi kích thước chữ
+        nameTag.Font = Enum.Font.SourceSansBold
+        nameTag.TextSize = 22
+
+        -- Cập nhật vị trí liên tục khi người chơi di chuyển
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if player.Character and player.Character:FindFirstChild("Head") then
+                local distance = (player.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude
+                distanceTag.Text = string.format("%.2f studs", distance)
+                billboardGui.StudsOffset = Vector3.new(0, 3, 0)  -- Đảm bảo vị trí được cập nhật
+            end
+        end)
+    end
+end
+
+game.Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function()
+        createESP(player)
+    end)
+end)
+
+for _, player in ipairs(game.Players:GetPlayers()) do
+    if player.Character then
+        createESP(player)
+    end
+end
+end)
+Esp:Toggle("Esp Fruit", false, function(value)
+local function createFruitESP(fruit)
+    if fruit:IsA("Tool") and fruit:FindFirstChild("Handle") then
+        local head = fruit.Handle
+        local billboardGui = Instance.new("BillboardGui")
+        billboardGui.Adornee = head
+        billboardGui.Parent = head
+        billboardGui.Size = UDim2.new(0, 200, 0, 50)
+        billboardGui.StudsOffset = Vector3.new(0, 3, 0)
+        billboardGui.AlwaysOnTop = true
+
+        local distanceTag = Instance.new("TextLabel")
+        distanceTag.Parent = billboardGui
+        distanceTag.Text = "..."
+        distanceTag.TextColor3 = Color3.fromRGB(255, 255, 255)
+        distanceTag.TextStrokeTransparency = 0.5
+        distanceTag.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+        distanceTag.BackgroundTransparency = 1
+        distanceTag.Size = UDim2.new(1, 0, 0.3, 0)
+        distanceTag.Position = UDim2.new(0, 0, 0, 0)
+        distanceTag.TextScaled = false
+        distanceTag.Font = Enum.Font.SourceSansBold
+        distanceTag.TextSize = 22
+
+        local nameTag = Instance.new("TextLabel")
+        nameTag.Parent = billboardGui
+        nameTag.Text = fruit.Name
+        nameTag.TextColor3 = Color3.fromRGB(255, 255, 255)
+        nameTag.TextStrokeTransparency = 0.5
+        nameTag.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+        nameTag.BackgroundTransparency = 1
+        nameTag.Size = UDim2.new(1, 0, 0.7, 0)
+        nameTag.Position = UDim2.new(0, 0, 0.3, 0)
+        nameTag.TextScaled = false
+        nameTag.Font = Enum.Font.SourceSansBold
+        nameTag.TextSize = 22
+
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if head and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                local distance = (head.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude
+                distanceTag.Text = string.format("%.2f studs", distance)
+            end
+        end)
+    end
+end
+
+-- Quét trái trong workspace
+for _, obj in pairs(workspace:GetDescendants()) do
+    if obj:IsA("Tool") and obj:FindFirstChild("Handle") and string.find(obj.Name:lower(), "fruit") then
+        createFruitESP(obj)
+    end
+end
+
+-- Lắng nghe khi có trái mới được thêm vào
+workspace.DescendantAdded:Connect(function(obj)
+    if obj:IsA("Tool") and obj:FindFirstChild("Handle") and string.find(obj.Name:lower(), "fruit") then
+        wait(0.1)
+        createFruitESP(obj)
+    end
+end)
+end)
+Esp:Toggle("Esp Real Frut", false, function(value)
+end)
+Esp:Toggle("Esp Chest", false, function(value)
+end)
+Esp:Toggle("Esp Boss", false, function(value)
+end)
+Esp:Toggle("Esp Island", false, function(value)
+end)
+Esp:Line()
+
+
 Teleport:Seperator("📜 Teleport To World 📜")
 Teleport:Button("World 1",function()
     
@@ -612,7 +752,6 @@ Teleport:Button("World 3",function()
 end)
 Teleport:Seperator("📜 Teleport To Island 📜")
 Teleport:Dropdown("Island", {""}, function(value)
-end)
 Teleport:Toggle("Tween Island", false, function(value)
    
 end)
