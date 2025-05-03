@@ -590,7 +590,6 @@ Shop:Button("Open Awakening", function()
     game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
 end)
 Shop:Line()
-Teleport = Library:Tab("☄️ Teleport ☄️")
 Teleport:Seperator("📜 Teleport To World 📜")
 Teleport:Button("World 1",function()
     
