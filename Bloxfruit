@@ -107,28 +107,31 @@ Tab1:Toggle("Auto Farm Mastery", false, function(value)
     end
 end)
 Tab1:Seperator("📦 Skill 📦")
+Tab1:Toggle("Skill Z", false, function(value)
+    while value do
+        task.wait(1)
+    end
+end)
 
-Tab1:Toggle("Skill Z", true, function(value)
+Tab1:Toggle("Skill X", false, function(value)
     while value do
         task.wait(1)
     end
 end)
-Tab1:Toggle("Skill X", true, function(value)
+
+Tab1:Toggle("Skill F", false, function(value)
     while value do
         task.wait(1)
     end
 end)
-Tab1:Toggle("Skill F", true, function(value)
+
+Tab1:Toggle("Skill V", false, function(value)
     while value do
         task.wait(1)
     end
 end)
-Tab1:Toggle("Skill V", true, function(value)
-    while value do
-        task.wait(1)
-    end
-end)
-Tab1:Toggle("Skill C", true, function(value)
+
+Tab1:Toggle("Skill C", false, function(value)
     while value do
         task.wait(1)
     end
