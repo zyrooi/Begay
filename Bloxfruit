@@ -388,31 +388,31 @@ Sea:Seperator("⚙️ Setting ⚙️")
 
 
 
-Sea:Toggle("Levithan", true, function(value)
+Sea:Toggle("Levithan", false, function(value)
     while value do
         task.wait(1)
     end
 end)
 
-Sea:Toggle("SeaBeast", true, function(value)
+Sea:Toggle("SeaBeast", false, function(value)
     while value do
         task.wait(1)
     end
 end)
 
-Sea:Toggle("Piranha", true, function(value)
+Sea:Toggle("Piranha", false, function(value)
     while value do
         task.wait(1)
     end
 end)
 
-Sea:Toggle("Boat Ghost", true, function(value)
+Sea:Toggle("Boat Ghost", false, function(value)
     while value do
         task.wait(1)
     end
 end)
 
-Sea:Toggle("Boat", true, function(value)
+Sea:Toggle("Boat", false, function(value)
     while value do
         task.wait(1)
     end
