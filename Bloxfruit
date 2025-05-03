@@ -51,7 +51,6 @@ Shop = Library:Tab("📜 Shop 📜")
 Sea = Library:Tab("📜 Sea Event 📜")
 Item = Library:Tab("📜 Item 📜")
 Melee = Library:Tab("📜 7 Melee 📜")
-Telepo = Library:Tab("📜 Teleport 📜")
 Im = Library:Tab("📜 ________ 📜")
 
 Info:Seperator("Version : Pro")
@@ -590,20 +589,6 @@ Shop:Button("Open Awakening", function()
 end)
 Shop:Line()
 
-Tele:Seperator("📜 Teleport For Wolrd 📜")
-Tele:Button("World 1",function()
-end)
-Tele:Button("World 2",function()
-end)
-Tele:Button("World 3",function()
-end)
-Tele:Seperator("📜 Teleport For Island 📜")
-
-Tele:Dropdown("Select Island", {""}, function(value)
-end)
-Tele:Toggle("Tween Island", false, function(value)
-end)
-Tele:Line()
 
 
 
