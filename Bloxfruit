@@ -49,7 +49,6 @@ end)
 local DarkraiX = loadstring(game:HttpGet("https://raw.githubusercontent.com/zyrooi/Ui/refs/heads/main/Darkrai%20Ui%20(2).txt", true))()
 
 local Library = DarkraiX:Window("Solitute Hub","","",Enum.KeyCode.LeftControl);
-Info = Library:Tab("📜 Info 📜")
 Setting = Library:Tab("📜 Setting 📜")
 Mastery = Library:Tab("📜 Mastery 📜")
 Tab1 = Library:Tab("📜 Gravity 📜")
@@ -64,12 +63,6 @@ Sea = Library:Tab("📜 Sea Event 📜")
 Item = Library:Tab("📜 Item 📜")
 Melee = Library:Tab("📜 7 Melee 📜")
 Im = Library:Tab("📜 ________ 📜")
-
-Info:Seperator("Version : Pro")
-Info:Seperator("Expired : Lifetime")
-Info:Seperator("Prite : 5 Usd - Prite : 80.000₫")
-Info:Seperator("Status Blacklist : None")
-Info:Seperator("Status Script : 🔃")
 
 Setting:Seperator("⚙️ Setting ⚙️")
 Setting:Toggle("Black Screengui", true, function(value)
