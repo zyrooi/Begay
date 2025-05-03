@@ -39,20 +39,20 @@ end)
 local DarkraiX = loadstring(game:HttpGet("https://raw.githubusercontent.com/zyrooi/Ui/refs/heads/main/Darkrai%20Ui%20(2).txt", true))()
 
 local Library = DarkraiX:Window("Solitute Hub","","",Enum.KeyCode.LeftControl);
-Info = Library:Tab("☄️ Info ☄️")
-Setting = Library:Tab("☄️ Setting ☄️")
-Tab1 = Library:Tab("☄️ Gravity ☄️")
-Tab2 = Library:Tab("☄️ Farm ☄️")
-Tab3 = Library:Tab("☄️ Draco v3 ☄️")
-Race = Library:Tab("☄️ Race v4 ☄️")
-Fruit = Library:Tab("☄️ Fruits ☄️")
-Raid = Library:Tab("☄️ Raid ☄️")
-Shop = Library:Tab("☄️ Shop ☄️")
-Sea = Library:Tab("☄️ Sea Event ☄️")
-Item = Library:Tab("☄️ Item ☄️")
-Melee = Library:Tab("☄️ 7 Melee ☄️")
-Telepo = Library:Tab("☄️ Teleport ☄️")
-Im = Library:Tab("☄️ ________ ☄️")
+Info = Library:Tab("📜 Info 📜")
+Setting = Library:Tab("📜 Setting 📜")
+Tab1 = Library:Tab("📜 Gravity 📜")
+Tab2 = Library:Tab("📜 Farm 📜")
+Tab3 = Library:Tab("📜 Draco v3 📜")
+Race = Library:Tab("📜 Race v4 📜")
+Fruit = Library:Tab("📜 Fruits 📜")
+Raid = Library:Tab("📜 Raid 📜")
+Shop = Library:Tab("📜 Shop 📜")
+Sea = Library:Tab("📜 Sea Event 📜")
+Item = Library:Tab("📜 Item 📜")
+Melee = Library:Tab("📜 7 Melee 📜")
+Telepo = Library:Tab("📜 Teleport 📜")
+Im = Library:Tab("📜 ________ 📜")
 
 Info:Seperator("Version : Pro")
 Info:Seperator("Expired : Lifetime")
@@ -590,25 +590,20 @@ Shop:Button("Open Awakening", function()
 end)
 Shop:Line()
 
-Tele:Seperator("📍 Teleport To World 📍")
-
-Tele:Button("Third Sea World", function()
+Tele:Seperator("📜 Teleport For Wolrd 📜")
+Tele:Button("World 1",function()
 end)
-
-Tele:Button("New World", function()
+Tele:Button("World 2",function()
 end)
-
-Tele:Button("Old World", function()
+Tele:Button("World 3",function()
 end)
-
-Tele:Seperator("📍 Tween Island 📍")
+Tele:Seperator("📜 Teleport For Island 📜")
 
 Tele:Dropdown("Select Island", {""}, function(value)
-    SelectedIsland = value
 end)
-
-Tele:Toggle("Tween To Island", false, function(value)
-    TweenEnabled = value
+Tele:Toggle("Tween Island", false, function(value)
 end)
-
 Tele:Line()
+
+
+
