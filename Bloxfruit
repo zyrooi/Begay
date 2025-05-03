@@ -1,14 +1,14 @@
 game.StarterGui:SetCore("SendNotification", {
     Title = "Solitude Hub",
     Text = "Success Loading",
-    Icon = "rbxthumb://type=Asset&id=103635972484891&w=420&h=420",
+    Icon = "rbxthumb://type=Asset&id=91241799178994&w=420&h=420",
     Duration = 5,
     Callback = function()
     end
 })
 repeat task.wait() until game:IsLoaded()
 
-getgenv().Image = "rbxthumb://type=Asset&id=103635972484891&w=420&h=420"
+getgenv().Image = "rbxthumb://type=Asset&id=91241799178994&w=420&h=420"
 getgenv().ToggleUI = "LeftControl"
 
 task.spawn(function()
@@ -24,9 +24,9 @@ task.spawn(function()
         ImageButton.BackgroundColor3 = Color3.fromRGB(105, 105, 105)
         ImageButton.BackgroundTransparency = 0.8
         ImageButton.Position = UDim2.new(0, 5, 0, 5)
-        ImageButton.Size = UDim2.new(0, 58, 0, 58)
+        ImageButton.Size = UDim2.new(0, 55, 0, 55)
         ImageButton.Image = getgenv().Image
-        ImageButton.Draggable = false
+        ImageButton.Draggable = true
         ImageButton.Transparency = 1
         UICorner.CornerRadius = UDim.new(100)
         UICorner.Parent = ImageButton
