@@ -600,24 +600,3 @@ Shop:Button("Open Awakening", function()
     game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
 end)
 Shop:Line()
-
-
-
-Teleport:Seperator("📜 Teleport To World 📜")
-Teleport:Button("World 1",function()
-    
-end)
-Teleport:Button("World 2",function()
-
-end)
-Teleport:Button("World 3",function()
-    
-end)
-Teleport:Seperator("📜 Teleport To Island 📜")
-Teleport:Dropdown("Island", {""}, function(value)
-Teleport:Toggle("Tween Island", false, function(value)
-   
-end)
-Teleport:Line()
-
-
