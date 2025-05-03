@@ -50,9 +50,8 @@ local DarkraiX = loadstring(game:HttpGet("https://raw.githubusercontent.com/zyro
 
 local Library = DarkraiX:Window("Solitute Hub","","",Enum.KeyCode.LeftControl);
 Setting = Library:Tab("📜 Setting 📜")
-Mastery = Library:Tab("📜 Mastery 📜")
 Tab1 = Library:Tab("📜 Gravity 📜")
-Tab2 = Library:Tab("📜 Farm 📜")
+Tab2 = Library:Tab("📜 General 📜")
 Tab3 = Library:Tab("📜 Draco v3 📜")
 Race = Library:Tab("📜 Race v4 📜")
 Fruit = Library:Tab("📜 Fruits 📜")
@@ -149,6 +148,24 @@ Tab1:Toggle("Skill C", false, function(value)
     while value do
         task.wait(1)
     end
+end)
+Tab1:Seperator("🟢 Mastery 🟢")
+
+
+Tab1:Toggle("Auto Farm Mastery", false, function(value)
+end)
+
+Tab1:Toggle("Use Skill Z", false, function(value)
+end)
+
+Tab1:Toggle("Use Skill X", false, function(value)
+end)
+Tab1:Toggle("Use Skill C", false, function(value)
+end)
+Tab1:Toggle("Use Skill F", false, function(value)
+end)
+
+Tab1:Toggle("Use Skill V", false, function(value)
 end)
 Tab1:Line()
 Tab2:Seperator("📜 Level 📜")
@@ -603,22 +620,4 @@ Shop:Button("Open Awakening", function()
     game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
 end)
 
-Mastery:Seperator("🟢 Mastery 🟢")
 
-
-Mastery:Toggle("Auto Farm Mastery", false, function(value)
-end)
-
-Mastery:Toggle("Use Skill Z", false, function(value)
-end)
-
-Mastery:Toggle("Use Skill X", false, function(value)
-end)
-Mastery:Toggle("Use Skill C", false, function(value)
-end)
-Mastery:Toggle("Use Skill F", false, function(value)
-end)
-
-Mastery:Toggle("Use Skill V", false, function(value)
-end)
-Mastery:Line()
