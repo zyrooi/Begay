@@ -386,8 +386,6 @@ Sea:Toggle("Auto Buy Boat", false, function(value)
 end)
 Sea:Seperator("⚙️ Setting ⚙️")
 
-
-
 Sea:Toggle("Levithan", false, function(value)
     while value do
         task.wait(1)
