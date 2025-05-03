@@ -51,7 +51,6 @@ local DarkraiX = loadstring(game:HttpGet("https://raw.githubusercontent.com/zyro
 local Library = DarkraiX:Window("Solitute Hub","","",Enum.KeyCode.LeftControl);
 Info = Library:Tab("📜 Info 📜")
 Setting = Library:Tab("📜 Setting 📜")
-Esp = Library:Tab("📜 Esp 📜")
 Tab1 = Library:Tab("📜 Gravity 📜")
 Tab2 = Library:Tab("📜 Farm 📜")
 Tab3 = Library:Tab("📜 Draco v3 📜")
@@ -601,20 +600,7 @@ Shop:Button("Open Awakening", function()
     game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
 end)
 Shop:Line()
-Esp:Seperator("📜 Esp 📜")
-Esp:Toggle("Esp Mob", false, function(value)
-end)
-Esp:Toggle("Esp Real Frut", false, function(value)
-end)
-Esp:Toggle("Esp Chest", false, function(value)
-end)
-Esp:Toggle("Esp Boss", false, function(value)
-end)
-Esp:Toggle("Esp Island", false, function(value)
-end)
-Esp:Toggle("Esp Player", false, function(value)
-end)
-Esp:Line()
+
 
 
 Teleport:Seperator("📜 Teleport To World 📜")
