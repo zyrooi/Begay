@@ -51,6 +51,7 @@ local DarkraiX = loadstring(game:HttpGet("https://raw.githubusercontent.com/zyro
 local Library = DarkraiX:Window("Solitute Hub","","",Enum.KeyCode.LeftControl);
 Info = Library:Tab("📜 Info 📜")
 Setting = Library:Tab("📜 Setting 📜")
+Mastery = Library:Tab("📜 Mastery 📜")
 Tab1 = Library:Tab("📜 Gravity 📜")
 Tab2 = Library:Tab("📜 Farm 📜")
 Tab3 = Library:Tab("📜 Draco v3 📜")
@@ -608,4 +609,23 @@ end)
 Shop:Button("Open Awakening", function()
     game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
 end)
-Shop:Line()
+
+Mastery:Seperator("🟢 Mastery 🟢")
+
+
+Mastery:Toggle("Auto Farm Mastery", false, function(value)
+end)
+
+Mastery:Toggle("Use Skill Z", false, function(value)
+end)
+
+Mastery:Toggle("Use Skill X", false, function(value)
+end)
+Mastery:Toggle("Use Skill C", false, function(value)
+end)
+Mastery:Toggle("Use Skill F", false, function(value)
+end)
+
+Mastery:Toggle("Use Skill V", false, function(value)
+end)
+Mastery:Line()
