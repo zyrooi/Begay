@@ -103,10 +103,8 @@ Tabs.Main:AddButton({
 	Title = "Solitute Hub - Arise Crossover",
 	Description = "",
 	Callback = function()
-repeat task.wait() until game:IsLoaded()
-getgenv().key = "njzhh2qib8qjpbszvo7wao346p496mitpcm"
-getgenv().version = "Aise-Crossver"
-loadstring(game:HttpGet("https://raw.githubusercontent.com/zyrooi/Premium/refs/heads/main/obfuscated_script-1746002024526"))()
+script_key = "xsxg15imvwwxjxfwawm5w6i7ivcuxd"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zyrooi/Premium/refs/heads/main/Arise-Crossover"))()
    end
 })
 
